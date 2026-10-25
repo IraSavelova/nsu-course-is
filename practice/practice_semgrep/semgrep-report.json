@@ -1,0 +1,210 @@
+{
+    "version": "1.182.0",
+    "results": [
+        {
+            "check_id": "dockerfile.security.last-user-is-root.last-user-is-root",
+            "path": "demoapplication/Dockerfile",
+            "start": {
+                "line": 3,
+                "col": 1,
+                "offset": 25
+            },
+            "end": {
+                "line": 3,
+                "col": 10,
+                "offset": 34
+            },
+            "extra": {
+                "message": "The last user in the container is 'root'. This is a security hazard because if an attacker gains control of the container they will have root access. Switch back to another user after running commands as 'root'.",
+                "metadata": {
+                    "cwe": [
+                        "CWE-269: Improper Privilege Management"
+                    ],
+                    "source-rule-url": "https://github.com/hadolint/hadolint/wiki/DL3002",
+                    "references": [
+                        "https://github.com/hadolint/hadolint/wiki/DL3002"
+                    ],
+                    "category": "security",
+                    "technology": [
+                        "dockerfile"
+                    ],
+                    "confidence": "MEDIUM",
+                    "owasp": [
+                        "A04:2021 - Insecure Design",
+                        "A06:2025 - Insecure Design"
+                    ],
+                    "subcategory": [
+                        "audit"
+                    ],
+                    "likelihood": "MEDIUM",
+                    "impact": "MEDIUM",
+                    "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+                    "vulnerability_class": [
+                        "Improper Authorization"
+                    ],
+                    "source": "https://semgrep.dev/r/dockerfile.security.last-user-is-root.last-user-is-root",
+                    "shortlink": "https://sg.run/5Z43"
+                },
+                "severity": "ERROR",
+                "fingerprint": "requires login",
+                "lines": "requires login",
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        },
+        {
+            "check_id": "java.spring.security.injection.tainted-system-command.tainted-system-command",
+            "path": "demoapplication/src/main/java/nsu/security/demoapplication/controller/FileController.java",
+            "start": {
+                "line": 103,
+                "col": 27,
+                "offset": 3895
+            },
+            "end": {
+                "line": 103,
+                "col": 49,
+                "offset": 3917
+            },
+            "extra": {
+                "message": "Detected user input entering a method which executes a system command. This could result in a command injection vulnerability, which allows an attacker to inject an arbitrary system command onto the server. The attacker could download malware onto or steal data from the server. Instead, use ProcessBuilder, separating the command into individual arguments, like this: `new ProcessBuilder(\"ls\", \"-al\", targetDirectory)`. Further, make sure you hardcode or allowlist the actual command so that attackers can't run arbitrary commands.",
+                "metadata": {
+                    "cwe": [
+                        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')"
+                    ],
+                    "owasp": [
+                        "A01:2017 - Injection",
+                        "A03:2021 - Injection",
+                        "A05:2025 - Injection"
+                    ],
+                    "category": "security",
+                    "technology": [
+                        "java",
+                        "spring"
+                    ],
+                    "confidence": "HIGH",
+                    "references": [
+                        "https://www.stackhawk.com/blog/command-injection-java/",
+                        "https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html",
+                        "https://github.com/github/codeql/blob/main/java/ql/src/Security/CWE/CWE-078/ExecUnescaped.java"
+                    ],
+                    "cwe2022-top25": true,
+                    "cwe2021-top25": true,
+                    "subcategory": [
+                        "vuln"
+                    ],
+                    "likelihood": "HIGH",
+                    "impact": "HIGH",
+                    "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+                    "vulnerability_class": [
+                        "Command Injection"
+                    ],
+                    "source": "https://semgrep.dev/r/java.spring.security.injection.tainted-system-command.tainted-system-command",
+                    "shortlink": "https://sg.run/epY0"
+                },
+                "severity": "ERROR",
+                "fingerprint": "requires login",
+                "lines": "requires login",
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        }
+    ],
+    "errors": [],
+    "paths": {
+        "scanned": [
+            "demoapplication/.gitattributes",
+            "demoapplication/.gitignore",
+            "demoapplication/Dockerfile",
+            "demoapplication/build.gradle",
+            "demoapplication/gradle/wrapper/gradle-wrapper.properties",
+            "demoapplication/gradle.properties",
+            "demoapplication/gradlew",
+            "demoapplication/gradlew.bat",
+            "demoapplication/settings.gradle",
+            "demoapplication/src/main/java/nsu/security/demoapplication/DemoapplicationApplication.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/controller/FileController.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/controller/HealthController.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/controller/OrderController.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/model/Order.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/repository/OrderJdbcRepository.java",
+            "demoapplication/src/main/java/nsu/security/demoapplication/repository/OrderRepository.java",
+            "demoapplication/src/main/resources/application.yaml",
+            "docker-compose.yml",
+            "script.png",
+            "script.py"
+        ]
+    },
+    "time": {
+        "rules": [],
+        "rules_parse_time": 0.16680502891540527,
+        "profiling_times": {
+            "config_time": 77.85523700714111,
+            "core_time": 0.602647066116333,
+            "ignores_time": 0.0004818439483642578,
+            "total_time": 78.46581697463989
+        },
+        "parsing_time": {
+            "total_time": 0.03698992729187012,
+            "per_file_time": {
+                "mean": 0.00036623690387990217,
+                "std_dev": 1.6890267122821144e-06
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "scanning_time": {
+            "total_time": 0.16406750679016113,
+            "per_file_time": {
+                "mean": 0.0032170099370619834,
+                "std_dev": 6.403445042916732e-05
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "matching_time": {
+            "total_time": 0.06388020515441895,
+            "per_file_and_rule_time": {
+                "mean": 0.0006324772787566231,
+                "std_dev": 1.0490819776762688e-06
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_files": []
+        },
+        "tainting_time": {
+            "total_time": 0.017146587371826172,
+            "per_def_and_rule_time": {
+                "mean": 7.085366682572798e-05,
+                "std_dev": 9.648294211323189e-09
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_defs": []
+        },
+        "fixpoint_timeouts": [],
+        "prefiltering": {
+            "project_level_time": 0.0,
+            "file_level_time": 0.0,
+            "rules_with_project_prefilters_ratio": 0.0,
+            "rules_with_file_prefilters_ratio": 0.90633608815427,
+            "rules_selected_ratio": 0.15013774104683195,
+            "rules_matched_ratio": 0.15013774104683195
+        },
+        "targets": [],
+        "total_bytes": 0,
+        "max_memory_bytes": 574311296
+    },
+    "engine_requested": "OSS",
+    "skipped_rules": [],
+    "profiling_results": []
+}
