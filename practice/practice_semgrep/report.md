@@ -61,7 +61,7 @@ semgrep scan \
 
 Приложенные отчеты сканера:
 
-- Уязвимая/исправленная версия: '/Users/irina/nsu-course-is/practice/practice1/demo/semgrep-report.json'
+- Уязвимая/исправленная версия: ['/Users/irina/nsu-course-is/practice/practice1/demo/semgrep-report.json'](https://github.com/IraSavelova/nsu-course-is/blob/main/practice/practice_semgrep/semgrep-report.json)
 
 ## 3. Результаты сканирования
 
@@ -81,6 +81,8 @@ semgrep scan \
 | Файл              | `demoapplication/src/main/java/nsu/security/demoapplication/controller/FileController.java`                                                                                                                    |
 | Строка            | 103                                                                                                                                                                                                            |
 | Сообщение сканера | Detected user input entering a method which executes a system command. This could result in a command injection vulnerability, which allows an attacker to inject an arbitrary system command onto the server. |
+
+
 Находка соответствует реальной уязвимости в проверяемом коде, поэтому была классифицирована как TP. Semgrep обнаружил уязвимость: имя файла, которое вводит пользователь, добавляется к системной команде через конкатенацию строк. Затем команда передаётся в `sh -c`, из-за чего специальные символы в имени файла могут привести к выполнению посторонних команд. Следовательно, находка соответствует CWE-78. 
 
 ### 3.2. Исправленная версия
