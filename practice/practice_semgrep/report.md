@@ -5,7 +5,7 @@ https://github.com/IraSavelova/nsu-course-is/tree/main/practice/practice1
 
 - **Тип уязвимости:** OS Command Injection
 - **CWE:** CWE-78
-- **Файл и строки:** /Users/irina/nsu-course-is/practice/practice1/demo/demoapplication/src/main/java/nsu/security/demoapplication/controller , строки 93-113
+- **Файл и строки:** [FileController.java](https://github.com/IraSavelova/nsu-course-is/blob/main/practice/practice1/demo/demoapplication/src/main/java/nsu/security/demoapplication/controller/FileController.java) , строки 93-113
 
 - **Источник (откуда приходят недоверенные данные):**  параметр `filename` из `@RequestParam`
 - **Синк (где данные используются опасно):** `new ProcessBuilder("sh", "-c", command);`
@@ -61,7 +61,7 @@ semgrep scan \
 
 Приложенные отчеты сканера:
 
-- Уязвимая/исправленная версия: ['/Users/irina/nsu-course-is/practice/practice1/demo/semgrep-report.json'](https://github.com/IraSavelova/nsu-course-is/blob/main/practice/practice_semgrep/semgrep-report.json)
+- Уязвимая/исправленная версия: [semgrep-report.json](https://github.com/IraSavelova/nsu-course-is/blob/main/practice/practice_semgrep/semgrep-report.json)
 
 ## 3. Результаты сканирования
 
